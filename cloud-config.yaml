@@ -1,3 +1,27 @@
 #cloud-config
+
+hostname: "meeseeks00"
+
+coreos:
+  units:
+    - name: etcd2.service
+      command: start
+    - name: fleet.service
+      command: start
+  update:
+    reboot-strategy: "best-effort"
+
+manage_etc_hosts: "localhost"
+
+write_files:
+  - path: "/etc/motd"
+    permissions: "0644"
+    owner: "root"
+    content: |
+      I'm Mr. Meeseeks! Look at me!
+
 ssh_authorized_keys:
+  # general key
   - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQClNWd5sRJrby8NK6O7duFI78mhoAFUdqamb69qxzqy2WjgIwxRtOPEvqIZOKk6ZgoNdyJKrk15KBPyzJKi8aQOz2FMajkj4arG2sh3ybjRSl6efJykToTyxfbxWzo6Qby1Kiw1x7iDdcJEct2AShtjE0y3vKv4K4c2RI1lhFRxH9Ywrb8UAb1FdOG9jHFaBGlZxeDcYU2ygBszLtKjp5yLYQXjj4ooBoxTm5PXL+oE/6F11eKTqJrJO7WUDMiJs2Y8kuJnrVQWmjeyvuflq95vNat2k+eBs9DS18g+oBZgn1iWc0fQ1M2952WQt1fT9jtcuuzl25Zzzi35AO9p1uTSEao7TqCO1aFkOlIa9WjcYWqB4rM9VucilgatGuSDOGVJw28u78v6MtHFOwTWEMpD/ry5FRB7TZ2PLty4dei3slN/6ekfhVn+NVv7fttzm8eHf+QtuaC+wFFCIj7pQmAQi+W1UyyKtplPZLO+Ld1XHWAREXK4Pv1oYpL//3C5emWlbJ5SFndqHgp8mzA8PT5VOnfCgZTMpgrO7dpdqWBZIu+vG0T2hbJ4MjQ4EHR4u7Odu9+JaQkNBNaRDsCH6dlfJwM6rQl/6qJT3FKSOBoTeqQweyQNwQ0qX6dISJCdSqX1dzmai+DKTyDVFlANr8NoX39xskZWnztB26CtCM8/fw== ergsuite@sc.edu
+  # scopatz laptop (agenor)
+  - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDKOYyfkdrURmV0KucxKYW33q9CvDey8Il5oSO75ZVtyEzXV7Y8pB7gH6ctoAjDxRxqsfPFlhlXMSWtCxOnkiK87Vkqo32m7uOWgBvMsCsU+G1eU+AumqoFfr6HsX5oA6WWEJ3lvN2c20GRw8f7WOwrGdqDdtiWn5X0vI3TNlgx6IcwdAnnv22y+mOacu4GDs0TJ9Ll2qRyior1cmCuvOmjM5X4Um1xAtcIkF6RDwWTdwGX37cYLNjY7tlgYi11RdW/00S1rAz0NulLUE68xltz83eR3B/vfsjyiy3TQqInl5oop3EituhS3cSpPacG6zxku7UclLQ0/AEcc8lnEIIf1KXdLNylMM51dIvbjtfx9mS56/tE9CWheFjJPNGKJLhJxSxT0VXG7IVhGKXEhY3RZWGOtnJbQe9YujSL6g/eHqkHWaJehA5M2qDYHWHbkDZ6V59hHemLn3LxomrlmLsVbVflv8aDJA5KZ3y15kl5iCLAgDy4WtHvoXOvS+eSgz6YmpJRarF+N+Elwd04UAGSPPFlDQ+1Za6n+35PQalNXT7lTk3KdnoCmo10+s3y8i+F5xLM+1eKzfpwNn5V85e7ONEGzt6kn5kexdz5nE4gaZr2OTJGAT2WY4ZCY0xp4fW8tF8eYzf5PtcBxF068W3ihmG2M7gGWimf21QjxKlB7w== scopatz@agenor
