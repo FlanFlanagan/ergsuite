@@ -1,0 +1,5 @@
+#!/bin/sh
+
+wget http://releases.ubuntu.com/15.04/ubuntu-15.04-snappy-amd64-generic.img.xz
+unxz -c ubuntu-15.04-snappy-amd64-generic.img.xz | sudo dd of=/dev/sda bs=32M
+sync
