@@ -5,3 +5,4 @@ set -e
 wget https://raw.githubusercontent.com/coreos/init/master/bin/coreos-install
 chmod +x coreos-install
 ./coreos-install -d /dev/sda -c cloud-config.yaml -C stable
+sync
