@@ -1,0 +1,5 @@
+#! /bin/bash
+
+echo -en "\033[1;34m" > /etc/motd
+sudo echo "I'm Mr. Meeseeks! Look at me!\n\nCaaaaaaaaannnnnn dooooooooo!" >> /etc/motd
+echo -en "\033[0m" >> /etc/motd
